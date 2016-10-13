@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace riat_l1
 {
-    class Output
+    public class Output
     {
         public decimal SumResult {get; set;}
         public int MulResult {get; set;}

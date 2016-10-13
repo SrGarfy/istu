@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace riat_l1
 {
-    class Input
+    public class Input
     {
         public int K {get; set;}
         public decimal[] Sums {get; set;}

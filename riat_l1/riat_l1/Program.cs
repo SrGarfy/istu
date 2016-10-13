@@ -8,7 +8,7 @@ namespace riat_l1
 {
     class Program
     {
-        private static readonly Serializer[] serializers = { new JsonSerializer(), new XmlSerializer() };
+        private static readonly Serializer[] serializers = { new JsonSerializer(), new XmlSerializerMy() };
         public static Serializer getSerializer(string type)
         {
             if (type != "Json" && type != "Xml")
