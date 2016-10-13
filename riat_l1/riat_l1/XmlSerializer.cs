@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace riat_l1
 {
     class XmlSerializer : Serializer
     {
-        public int Serialize()
+        public byte[] Serialize<T>(T obj)
         {
-            return 0;
+            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(obj));
         }
 
-        public int Deserialize()
+        public T Deserialize<T>(byte[] data)
         {
-            return 0;
+            return JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(data));
         }
     }
 }

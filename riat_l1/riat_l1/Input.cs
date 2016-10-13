@@ -9,13 +9,18 @@ namespace riat_l1
 {
     class Input
     {
-        public int K { get; set; }
-        public decimal[] Sums { get; set; }
-        public int[] Muls { get; set; }
+        public int K {get; set;}
+        public decimal[] Sums {get; set;}
+        public int[] Muls {get; set;}
 
         public Output createOutput()
         {
-            return new Output();
+            return new Output
+            {
+                SumResult = Sums.Sum()*K,
+                MulResult = Muls.Aggregate((a, b) => a*b),
+                SortedInputs = Sums.Concat(Muls.Select(a => (decimal) a)).OrderBy(x => x).ToArray()
+            };
         }
     }
 }

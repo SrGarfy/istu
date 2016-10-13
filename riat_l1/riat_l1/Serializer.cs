@@ -8,7 +8,7 @@ namespace riat_l1
 {
     public interface Serializer
     {
-        int Serialize();
-        int Deserialize();
+        byte[] Serialize<T>(T obj);
+        T Deserialize<T>(byte[] data);
     }
 }

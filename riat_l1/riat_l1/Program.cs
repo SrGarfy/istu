@@ -23,9 +23,9 @@ namespace riat_l1
             var serializingType = Console.ReadLine();
             var serializer = Program.getSerializer(serializingType);
             var inputData = Encoding.UTF8.GetBytes(Console.ReadLine());
-            var input = serializer.Deserialize();
-            //var output = input.createOutput();
-            //Console.WriteLine(Encoding.UTF8.GetString(serializer.Serialize(output)));
+            var input = serializer.Deserialize<Input>(inputData);
+            var output = input.createOutput();
+            Console.WriteLine(Encoding.UTF8.GetString(serializer.Serialize(output)));
         }
     }
 }
