@@ -8,9 +8,24 @@ namespace riat_l1
 {
     class Program
     {
+        private static readonly Serializer[] serializers = { new JsonSerializer(), new XmlSerializer() };
+        public static Serializer getSerializer(string type)
+        {
+            if (type != "Json" && type != "Xml")
+            {
+                throw new System.ArgumentException("Wrong type.", type);
+            }
+            return (type == "Json" ? serializers[0] : serializers[1]);
+        }
+
         static void Main(string[] args)
         {
-            Console.Write("test message");
+            var serializingType = Console.ReadLine();
+            var serializer = Program.getSerializer(serializingType);
+            var inputData = Encoding.UTF8.GetBytes(Console.ReadLine());
+            var input = serializer.Deserialize();
+            //var output = input.createOutput();
+            //Console.WriteLine(Encoding.UTF8.GetString(serializer.Serialize(output)));
         }
     }
 }
